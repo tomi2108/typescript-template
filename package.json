@@ -1,0 +1,40 @@
+{
+  "name": "typescript-template",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/main.js",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "scripts": {
+    "commit": "pnpm test && pnpm build && sui-mono commit",
+    "ci": "pnpm lint && pnpm test && pnpm build",
+    "dev": "vitest",
+    "test": "vitest run",
+    "build": "tsup src/main.ts --format cjs,esm --dts",
+    "lint": "prettier src/**/*.ts --write && eslint --cache --fix",
+ "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "Tomas Sanchez Negrette",
+  "devDependencies": {
+    "@commitlint/cli": "17.2.0",
+    "@commitlint/config-conventional": "17.2.0",
+    "@s-ui/mono": "2.34.0",
+    "@types/node": "18.15.3",
+    "@typescript-eslint/eslint-plugin": "5.55.0",
+    "@typescript-eslint/parser": "5.55.0",
+    "eslint": "8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "8.0.2",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4",
+    "tsup": "6.6.3",
+    "typescript": "4.9.5",
+    "vitest": "0.29.3"
+  },
+  "lint-staged": {
+    "*.ts": "pnpm lint",
+    "*.tsx": "pnpm lint"
+  }
+}
